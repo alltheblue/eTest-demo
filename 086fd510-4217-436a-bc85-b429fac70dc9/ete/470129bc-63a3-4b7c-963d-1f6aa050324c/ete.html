@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>eTest集成测试报告</title>
+        <link rel="icon" href="./img/icon.ico" />
+        <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet" />
+        <style type="text/css" media="screen">
+            .container-box {
+                max-width: 1160px;
+                margin: 10px auto;
+            }
+            #main {
+                margin: 0 auto;
+                height: 350px;
+                width: 400px;
+            }
+            .temp-logo {
+                width: 28px;
+                height: 28px;
+                margin: 0 10px 0 20px;
+            }
+            .navbar-nav .nav-item a {
+                color: #666;
+                margin: 0 10px;
+                letter-spacing: 2px;
+            }
+            .etest-ml-25 {
+                margin-left: 25%;
+                margin-bottom: -11px;
+            }
+            p {
+                margin-bottom: 8px;
+            }
+            .iframe {
+                border: 0px;
+                width: 80%;
+                min-width: 1280px;
+                height: 600px;
+                overflow: auto;
+                margin-top: 20px;
+            }
+
+            #mask {
+                background: rgba(0, 0, 0, 0.7);
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                padding-top: 100px;
+                text-align: center;
+            }
+            .loading-container {
+                background: #fff;
+                width: 300px;
+                height: 200px;
+                border-radius: 4px;
+                text-align: center;
+                font-size: 20px;
+                font-weight: 700;
+                margin: 0 auto;
+                overflow: hidden;
+            }
+            .loading {
+                width: 80px;
+                height: 40px;
+                margin: 0 auto;
+                margin-top: 20%;
+                margin-bottom: 40px;
+            }
+            .loading span {
+                display: inline-block;
+                width: 8px;
+                height: 100%;
+                border-radius: 4px;
+                background: #0a47ed;
+                -webkit-animation: load 1s ease infinite;
+            }
+            @-webkit-keyframes load {
+                0%,
+                100% {
+                    height: 40px;
+                    background: #0a47ed;
+                }
+                50% {
+                    height: 70px;
+                    margin: -15px 0;
+                    background: rgb(65 124 190);
+                }
+            }
+            .loading span:nth-child(2) {
+                -webkit-animation-delay: 0.2s;
+            }
+            .loading span:nth-child(3) {
+                -webkit-animation-delay: 0.4s;
+            }
+            .loading span:nth-child(4) {
+                -webkit-animation-delay: 0.6s;
+            }
+            .loading span:nth-child(5) {
+                -webkit-animation-delay: 0.8s;
+            }
+            #etest-screenshot img {
+                width: 100%;
+            }
+            #etest-assert img {
+                vertical-align: top;
+            }
+            .delImg {
+                position: absolute;
+                top: -10px;
+                right: -7px;
+                width: 22px;
+                height: 22px;
+                background: #000;
+                border-radius: 50%;
+                display: block;
+                text-align: center;
+                line-height: 22px;
+                color: #fff;
+                font-weight: 700;
+                font-style: normal;
+                cursor: pointer;
+                transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+                -o-transform: rotate(45deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="mask">
+            <div class="loading-container">
+                <div class="loading">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                hello eTest
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <img src="../img/logo.png" class="temp-logo" />
+            <a class="navbar-brand" href="index.html">eTest</a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">首页</a>
+                    </li>
+                    <!--     <li class="nav-item">
+                        <a class="nav-link" href="../ui/ui.html">UI</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="../ete/ete.html">ETE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../api/api.html">API</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../yali/yali.html">压力测试</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="container">
+            <div class="card-header border-0">
+                <div class="container-box">
+                    <h3>ETE 测试报告</h3>
+                    <p class="text-secondary" id="etest-overview"></p>
+                    <div class="etest-ml-25 w-50">
+                        <div class="d-flex">
+                            <div class="p-2">
+                                <span id="etest-success" class="badge">成功</span>
+                            </div>
+                            <div class="ml-auto p-2">
+                                <span id="etest-error" class="badge">失败</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <div class="p-2 w-50">
+                            <div class="progress bg-danger">
+                                <div class="progress-bar bg-success" id="etest-progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-box">
+                <div class="mt-4" id="etest-assert"></div>
+                <div class="mt-4" id="etest-screenshot"></div>
+                <div class="mt-4" id="etest-video"></div>
+                <div class="mt-4" id="etest-response"></div>
+                <div class="mt-4" id="etest-pageerror"></div>
+                <h4 id="performance-title">性能分析</h4>
+                <div id="iframeContainer"></div>
+            </div>
+            <div class="modal fade bs-example-modal-lg text-center" id="ShowImgModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg" style="display: inline-block; width: auto;">
+                    <div class="modal-content" style="position: relative;">
+                        <img id="BigImg" src="" class="img-responsive center-block" alt="">
+                        <span class="delImg" onclick="CloseImg()">+</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.0.2/echarts.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+        <!-- jQuery and JavaScript Bundle with Popper -->
+        <!--  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.0.2/echarts.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script> -->
+        <script src="./result.js"></script>
+        <script>
+             //预览图片
+             function OpenImg(path) {
+                console.log(path)
+                $("#ShowImgModal").modal('show');
+                $("#BigImg").attr("src", "" + path + "");
+            }
+
+            
+            function delPath(path) {
+               let data=  path.split('/')
+               data.shift()
+               return data.join('/')
+            }
+
+            //关闭预览
+            function CloseImg() {
+                $("#ShowImgModal").modal('hide');
+            }
+
+            $(document).ready(function () {
+                console.log(window.frames.length, parent.frames.length);
+                // 首先，创建一个新的URLSearchParams对象
+                const baseUrl = location.href.split('/ete/')[0]
+
+                $('#mask').hide();
+                $('.navbar').hide();
+                if (window.frames.length < 1) {
+                    $('.navbar-expand-lg').html('');
+                    $('#container').css('margin', '0 auto');
+                }else{
+                    $('.navbar').show();
+                }
+                if (dataSource) {
+                    console.log(dataSource);
+                    const total = dataSource.assert.length;
+                    const successNum = dataSource.assert.filter((item) => item.result === 'success').length;
+                    $('#etest-overview').html(
+                        `共运行 ${total} 条断言，成功 ${successNum} 条，失败 ${total - successNum}条 错误请求 ${
+                            dataSource.response.length
+                        }条，页面错误${dataSource.error.length}条`
+                    );
+
+                    if (dataSource.perforNum != 0) {
+                        let iframeHtml = '';
+                        for (let i = 0; i < dataSource.perforNum; i++) {
+                            iframeHtml += `<iframe class="iframe" src="./performance${i}.html"></iframe>`;
+                        }
+                        iframeHtml === '' && $('#performance-title').hide();
+                        $('#iframeContainer').html(iframeHtml);
+                    } else {
+                        $('#performance-title').hide();
+                    }
+
+                    let successClass = successNum > 0 ? 'badge-success' : 'badge-secondary';
+                    let errorClass = total - successNum > 0 ? 'badge-danger' : 'badge-secondary';
+                    $('#etest-success').addClass(successClass);
+                    $('#etest-error').addClass(errorClass);
+
+                    $('#etest-progress').css('width', `${(successNum / total) * 100}%`);
+
+                    if (dataSource.assert && dataSource.assert.length > 0) {
+                        let assertInnerHtml = '<h4>断言</h4><div class="card-header border-0">';
+                        dataSource.assert.map((item, index) => {
+                            assertInnerHtml += `<p class="overflow-auto">${index + 1}、${item.title} 期望: ${item.oldValue}  ${
+                                item.assert
+                            } ${item.newValue} :
+                <span class="badge ${item.result === 'success' ? 'badge-success' : 'badge-danger'}">${
+                                item.result === 'success' ? '成功' : '失败'
+                            }</span></p>`;
+
+                            if (item.result !== 'success' && item.image) {
+                                assertInnerHtml += `<p><img width="50%" src="${baseUrl+'/'+item.fullImage}" onclick="OpenImg('${baseUrl+'/'+item.fullImage}')" /><img width="50%" src="${baseUrl+'/'+item.image}" onclick="OpenImg('${baseUrl+'/'+item.image}')" /></p>`;
+                            }
+                        });
+                        assertInnerHtml += '</div>';
+                        $('#etest-assert').html(assertInnerHtml);
+                    } else {
+                        $('#etest-assert').hide();
+                    }
+                    if(dataSource.video && dataSource.video.length > 0){
+                        let videoInnerHtml = '<h4>视频回放</h4>';
+                        dataSource.video.map((item) => {
+                            videoInnerHtml += ` <div class="card-header border-0 ">
+                                <p class="overflow-auto">${item.title}</p>
+                                <video id="my_video_1"  width="1120" height="100%" disablepictureinpicture controls preload="none" >
+                                    <source src="${item.path}" type='video/webm' />
+                                </video>
+                                </div>`
+                        });
+                        videoInnerHtml += '</div>';
+                        $('#etest-video').html(videoInnerHtml);
+                    }else{
+                        $('#etest-video').hide();
+                    }
+
+                    if (dataSource.response && dataSource.response.length > 0) {
+                        console.log(dataSource.response)
+                        let responseInnerHtml = '<h4>请求错误</h4>';
+                        dataSource.response.map((item) => {
+                            responseInnerHtml += ` <div class="card-header border-0 ">
+                    <p class="overflow-auto">${item.title},请求地址:<span class="text-muted">${item.url}</span></p>
+                    <p class="overflow-auto">状态码: <span class="text-danger">${item.status}</span>
+                    类型: ${item.type}</p>`;
+                            responseInnerHtml += item.haeder
+                                ? `<p class="overflow-auto">请求头: <pre>${item.haeder}</pre></p>
+                </div>`
+                                : '</div>';
+                        });
+                        responseInnerHtml += '</div>';
+                        $('#etest-response').html(responseInnerHtml);
+                    } else {
+                        $('#etest-response').hide();
+                    }
+
+                    if (dataSource.error && dataSource.error.length > 0) {
+                        let errorInnerHtml = '<h4>语法错误</h4>';
+                        dataSource.error.map((item, index) => {
+                            errorInnerHtml += `<div class="card-header border-0">
+                    <p class="overflow-auto">${index + 1}、${item.tapName} -- ${item.message},错误描述:${
+                                typeof item.error == 'object' ? item.error.name : item.error
+                            }</p>
+                    </div>`;
+                        });
+                        errorInnerHtml += '</div>';
+                        $('#etest-pageerror').html(errorInnerHtml);
+                    } else {
+                        $('#etest-pageerror').hide();
+                    }
+
+                    console.log(dataSource.screenshot);
+                    //todo
+                    if (dataSource.screenshot && dataSource.screenshot.length > 0) {
+                        let screenshotInnerHtml = '<h4>页面差异对比</h4>';
+                        dataSource.screenshot.map((item, index) => {
+                            let number = item.diffPercent * 100;
+                            number = String(number).replace(/^(.*\..{4}).*$/, '$1');
+                            number = Number(number);
+                            if (item.resultpath) {
+                                screenshotInnerHtml += ` <div class='card-header border-0'>
+                        <div>${item.title} 步骤 ${item.index},准确度：${100 - number}%</div>
+                        <div class="row">
+                            <div class="col-sm">
+                                <img src="${baseUrl+'/'+item.oldPath}" onclick="OpenImg('${baseUrl+'/'+item.oldPath}')"/>
+                            </div>
+                            <div class="col-sm">
+                                <img src="${baseUrl+'/'+item.newPath}" onclick="OpenImg('${baseUrl+'/'+item.newPath}')"/>
+                            </div>
+                            <div class="col-sm">
+                                <img src="${baseUrl+'/'+item.resultpath}" onclick="OpenImg('${baseUrl+'/'+item.resultpath}')"/>
+                            </div>
+                        </div>
+                    </div>`;
+                            }
+                        });
+                        screenshotInnerHtml += '</div>';
+                        $('#etest-screenshot').html(screenshotInnerHtml);
+                    } else {
+                        $('#etest-screenshot').hide();
+                    }
+                }
+
+            });
+        </script>
+    </body>
+</html>

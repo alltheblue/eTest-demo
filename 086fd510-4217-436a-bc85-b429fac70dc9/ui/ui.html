@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>eTest集成测试报告</title>
+        <!-- CSS -->
+        <link rel="icon" href="../img/icon.ico" />
+        <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet" />
+        <!--        <link href="./css/index.css" rel="stylesheet" />-->
+        <style type="text/css">
+                        #mask{
+                background: rgba(0, 0, 0, 0.7);
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                padding-top: 100px;
+                text-align: center;
+            }
+            .loading-container {
+                background: #fff;
+               width: 300px;
+                height: 200px;
+                border-radius: 4px;
+                text-align: center;
+                font-size: 20px;
+                font-weight: 700;
+                    margin: 0 auto;
+                        overflow: hidden;
+            }
+            .loading {
+                width: 80px;
+                height: 40px;
+                margin: 0 auto;
+                margin-top: 20%;
+                margin-bottom: 40px;
+            }
+            .loading span {
+                display: inline-block;
+                width: 8px;
+                height: 100%;
+                border-radius: 4px;
+                background: #0a47ed;
+                -webkit-animation: load 1s ease infinite;
+            }
+            @-webkit-keyframes load {
+                0%,
+                100% {
+                    height: 40px;
+                    background: #0a47ed;
+                }
+                50% {
+                    height: 70px;
+                    margin: -15px 0;
+                    background: rgb(65 124 190);
+                }
+            }
+            .loading span:nth-child(2) {
+                -webkit-animation-delay: 0.2s;
+            }
+            .loading span:nth-child(3) {
+                -webkit-animation-delay: 0.4s;
+            }
+            .loading span:nth-child(4) {
+                -webkit-animation-delay: 0.6s;
+            }
+            .loading span:nth-child(5) {
+                -webkit-animation-delay: 0.8s;
+            }
+        </style>
+    </head>
+    <body>
+         <div id="mask">
+        <div class="loading-container">
+            <div class="loading">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            hello eTest
+        </div>
+    </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <!-- <img src="../img/logo.png" class="temp-logo" /> -->
+            <a class="navbar-brand" href="index.html">eTest</a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!--    <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../ui/ui.html">UI</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../ete/ete.html">ETE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../api/api.html">API</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../yali/yali.html">压力测试</a>
+                    </li>
+                </ul> -->
+            </div>
+        </nav>
+
+        <div id="container">
+            <!--    <h3>UI测试报告</h3>-->
+        </div>
+        <div
+            class="modal fade"
+            id="staticBackdrop"
+            data-keyboard="false"
+            tabindex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-lg"></div>
+        </div>
+    </body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.0.2/echarts.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery and JavaScript Bundle with Popper -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.0.2/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="./result.js"></script>
+    <script>
+        $(document).ready(function () {
+             $('#mask').hide();
+            if (window.frames.length != parent.frames.length) {
+                $('.navbar').hide();
+                $('#container').css('margin', '0 auto');
+            }
+            renderUiReport();
+        });
+
+        function renderUiReport() {
+            console.log(dataSource);
+            if (!dataSource || !Array.isArray(dataSource)) return;
+
+            const inner = dataSource.map((data, index) => {
+                const {
+                    diffPercent,
+                    img_diff,
+                    img_diff_mark,
+                    img_screenShot,
+                    img_screenShot_mark,
+                    img_ui_url,
+                    img_ui_mark,
+                    parentData: { website, screenHeight, screenWidth,dev_img_local },
+                    config: { device, dpr },
+                } = data;
+
+                const percent = parseInt(diffPercent * 100, 10);
+
+                const imgs = [
+                    { url: img_ui_mark || img_ui_url, text: 'UI图片' },
+                    { url: img_screenShot_mark || dev_img_local || img_screenShot, text: 'web截图' },
+                    { url: img_diff_mark || img_diff, text: '对照图片' },
+                ].map(
+                    (item) =>
+                        `<div class="w-33 px-md-1">
+                            <figure class="figure">
+                            <img src="${item.url}" class="figure-img img-thumbnail" alt="...">
+                            <figcaption class="figure-caption text-right">${item.text}</figcaption>
+                            </figure>
+                        </div>`
+                );
+
+                return `
+            <div style="margin: 20px">
+                <h4>差异对比_${index + 1}</h4>
+                <p class="text-secondary">
+                  <p class="text-justify">${website || ''}</p>
+                    <p>还原度： ${100 - percent}%</p>
+                    <p>设备信息： ${
+                        device ? 'Phone' : 'Web'
+                    }&nbsp;&nbsp;&nbsp;宽：${screenWidth}&nbsp;&nbsp;&nbsp;高：${screenHeight}&nbsp;&nbsp;&nbsp;dpr: ${
+                    (device && dpr) || 1
+                }</p>
+                </p>
+                <div class="etest-ml-25">
+                    <div class="progress">
+                        <div
+                            class="progress-bar bg-success"
+                            role="progressbar"
+                            style="width: ${100 - percent}%"
+                            aria-valuenow="${100 - percent}"
+                            aria-valuemin="0"
+                            aria-valuemax="100"
+                        >${100 - percent}%</div>
+                    </div>
+                </div>
+                <div class='d-flex justify-content-around mt-2'>
+                    ${imgs.join('')}
+                </div>
+            </div>
+            `;
+            });
+            const modal = $('#staticBackdrop');
+            $('#container')
+                .append(inner)
+                .on('click', (e) => {
+                    if (e.target.nodeName !== 'IMG') return;
+                    modal.find('.modal-dialog').html(`<img src="${e.target.src}" class="img-thumbnail" alt="...">`);
+                    modal.modal('show');
+                });
+
+            modal.on('click', (e) => {
+                modal.modal('hide');
+            });
+        }
+    </script>
+</html>
