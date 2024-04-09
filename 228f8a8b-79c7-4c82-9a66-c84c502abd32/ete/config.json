@@ -1,0 +1,48 @@
+{
+	"modulePath": "228f8a8b-79c7-4c82-9a66-c84c502abd32/ete",
+	"configPath": "228f8a8b-79c7-4c82-9a66-c84c502abd32/ete/config.json",
+	"dataSource": [
+		{
+			"id": "137b6146-01e3-417f-bc89-8fac3db1b979",
+			"eteList": [
+				{
+					"id": "$ETE1b50a22d-5138-4eed-8120-317c74285ac1",
+					"date": 1682236328430,
+					"name": "he_百度搜索.json",
+					"path": "228f8a8b-79c7-4c82-9a66-c84c502abd32/ete/$ETE1b50a22d-5138-4eed-8120-317c74285ac1.js",
+					"checked": true
+				}
+			],
+			"checked": true,
+			"name": "0112"
+		},
+		{
+			"id": "62cc3a1b-8df1-411b-b06f-cc557876bc77",
+			"eteList": [
+				{
+					"id": "$ETEaac97d7b-6b35-4464-9a65-84362344c798",
+					"date": 1682243849497,
+					"name": "加电旅程 (3).json",
+					"path": "228f8a8b-79c7-4c82-9a66-c84c502abd32/ete/$ETEaac97d7b-6b35-4464-9a65-84362344c798.js",
+					"checked": true
+				}
+			],
+			"checked": true,
+			"name": "测试加电路程"
+		},
+		{
+			"id": "a140db9a-799c-41e1-8bef-f28ad92f6ea9",
+			"eteList": [
+				{
+					"id": "$ETEdb73cb13-5778-4b29-99de-1d961f2dc9a0",
+					"date": 1682244179374,
+					"name": "路书详情 (1).json",
+					"path": "228f8a8b-79c7-4c82-9a66-c84c502abd32/ete/$ETEdb73cb13-5778-4b29-99de-1d961f2dc9a0.js",
+					"checked": true
+				}
+			],
+			"checked": true,
+			"name": "路书"
+		}
+	]
+}

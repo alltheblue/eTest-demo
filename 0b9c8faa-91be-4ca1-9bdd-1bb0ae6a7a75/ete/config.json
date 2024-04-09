@@ -1,0 +1,70 @@
+{
+	"config": { "trace": false },
+	"modulePath": "0b9c8faa-91be-4ca1-9bdd-1bb0ae6a7a75/ete",
+	"dataSource": [
+		{
+			"id": "69b755e4-c967-4d8e-8a6d-22d848e8211c",
+			"eteList": [
+				{
+					"id": "$ETE85a49298-70d3-4eec-b1e6-858c72fdc167",
+					"date": 1697711377147,
+					"name": "Storybook (10).json",
+					"path": "0b9c8faa-91be-4ca1-9bdd-1bb0ae6a7a75/ete/$ETE85a49298-70d3-4eec-b1e6-858c72fdc167.js",
+					"checked": false
+				},
+				{
+					"id": "$ETE9dec6208-afe2-4f87-aa98-b070a233629e",
+					"date": 1697712672856,
+					"name": "Storybook (9).json",
+					"path": "0b9c8faa-91be-4ca1-9bdd-1bb0ae6a7a75/ete/$ETE9dec6208-afe2-4f87-aa98-b070a233629e.js",
+					"checked": false
+				},
+				{
+					"id": "$ETE99bf9252-b9f6-477a-9eb9-ea21997386ba",
+					"date": 1697797772087,
+					"name": "Storybook (11).json",
+					"path": "0b9c8faa-91be-4ca1-9bdd-1bb0ae6a7a75/ete/$ETE99bf9252-b9f6-477a-9eb9-ea21997386ba.js",
+					"checked": true
+				}
+			],
+			"checked": false,
+			"name": "测试"
+		},
+		{
+			"id": "a6382e80-451b-4c4e-aac5-a7379674c07f",
+			"eteList": [
+				{
+					"id": "$ETE4d14f505-c5e4-4076-9ebf-b9425e6a3fbd",
+					"date": 1693212946831,
+					"name": "Storybook (3).json",
+					"path": "0b9c8faa-91be-4ca1-9bdd-1bb0ae6a7a75/ete/$ETE4d14f505-c5e4-4076-9ebf-b9425e6a3fbd.js",
+					"checked": false
+				},
+				{
+					"id": "$ETE7c9a72ef-3ac9-4bb3-bdd1-5d4b8f0db055",
+					"date": 1693213441581,
+					"name": "Storybook (5).json",
+					"path": "0b9c8faa-91be-4ca1-9bdd-1bb0ae6a7a75/ete/$ETE7c9a72ef-3ac9-4bb3-bdd1-5d4b8f0db055.js",
+					"checked": false
+				}
+			],
+			"checked": false,
+			"name": "拖拽"
+		},
+		{
+			"id": "9e592a3a-ea22-4bfb-a245-e8b95a22ff3c",
+			"eteList": [
+				{
+					"id": "$ETEc0b47385-82bf-4b7c-a058-e3265869538f",
+					"date": 1693221999795,
+					"name": "Storybook (8).json",
+					"path": "0b9c8faa-91be-4ca1-9bdd-1bb0ae6a7a75/ete/$ETEc0b47385-82bf-4b7c-a058-e3265869538f.js",
+					"checked": false
+				}
+			],
+			"checked": false,
+			"name": "iframe"
+		}
+	],
+	"configPath": "0b9c8faa-91be-4ca1-9bdd-1bb0ae6a7a75/ete/config.json"
+}

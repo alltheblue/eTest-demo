@@ -1,0 +1,35 @@
+{
+  "config": { "local": true, "debugger": false },
+  "modulePath": "f9ca2df5-cebe-4c1e-a071-fee71ad893b8/ete",
+  "dataSource": [
+    {
+      "id": "22f00118-9b45-47ff-a212-c7d7f2cd9b2f",
+      "eteList": [
+        {
+          "id": "$ETEd390af9b-7dc3-4241-9e9c-c2090d09299c",
+          "date": 1698117982391,
+          "name": "抱元科技 (1).json",
+          "path": "f9ca2df5-cebe-4c1e-a071-fee71ad893b8/ete/$ETEd390af9b-7dc3-4241-9e9c-c2090d09299c.js",
+          "checked": true
+        }
+      ],
+      "checked": true,
+      "name": "测试首页"
+    },
+    {
+      "id": "7d18261b-e28d-457b-abfc-f1bf2b5943ea",
+      "eteList": [
+        {
+          "id": "$ETE4264f5b9-d632-41f8-8457-7ccbb9031db0",
+          "date": 1698128804180,
+          "name": "eTest 的个人主页 - 动态 - 掘金.json",
+          "path": "f9ca2df5-cebe-4c1e-a071-fee71ad893b8/ete/$ETE4264f5b9-d632-41f8-8457-7ccbb9031db0.js",
+          "checked": true
+        }
+      ],
+      "checked": true,
+      "name": "1212"
+    }
+  ],
+  "configPath": "f9ca2df5-cebe-4c1e-a071-fee71ad893b8/ete/config.json"
+}

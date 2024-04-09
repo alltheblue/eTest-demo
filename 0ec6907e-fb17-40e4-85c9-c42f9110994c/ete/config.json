@@ -1,0 +1,63 @@
+{
+	"config": { "screenshot": false, "trace": true, "headless": false, "brower": "chrome" },
+	"modulePath": "0ec6907e-fb17-40e4-85c9-c42f9110994c/ete",
+	"dataSource": [
+		{
+			"id": "2a3915c8-156b-494f-b47e-546497090b98",
+			"eteList": [
+				{
+					"id": "$ETE5c260fba-45fd-4d64-b566-e9b50008f8df",
+					"date": 1677574091972,
+					"name": "换电帮助",
+					"path": "0ec6907e-fb17-40e4-85c9-c42f9110994c/ete/$ETE5c260fba-45fd-4d64-b566-e9b50008f8df.js",
+					"checked": true
+				},
+				{
+					"id": "$ETE8e16e8c2-5234-4940-af76-eb7d8cf0b48b",
+					"date": 1677575739719,
+					"name": "加电旅程",
+					"path": "0ec6907e-fb17-40e4-85c9-c42f9110994c/ete/$ETE8e16e8c2-5234-4940-af76-eb7d8cf0b48b.js",
+					"checked": true
+				},
+				{
+					"id": "$ETEc28e6b42-12c7-401e-8040-dc08a93c6b8d",
+					"date": 1677575129272,
+					"name": "路径规划",
+					"path": "0ec6907e-fb17-40e4-85c9-c42f9110994c/ete/$ETEc28e6b42-12c7-401e-8040-dc08a93c6b8d.js",
+					"checked": true
+				},
+				{
+					"id": "$ETEfc5b8d0e-e31e-4c5a-b357-7c66cd1dd695",
+					"date": 1677574091973,
+					"name": "换电站心愿单",
+					"path": "0ec6907e-fb17-40e4-85c9-c42f9110994c/ete/$ETEfc5b8d0e-e31e-4c5a-b357-7c66cd1dd695.js",
+					"checked": true
+				},
+				{
+					"id": "$ETEa6e22300-1d7f-4064-ab54-04198ad12829",
+					"date": 1677574091974,
+					"name": "nio路书详情",
+					"path": "0ec6907e-fb17-40e4-85c9-c42f9110994c/ete/$ETEa6e22300-1d7f-4064-ab54-04198ad12829.js",
+					"checked": true
+				},
+				{
+					"id": "$ETE0df67767-0927-4c2e-ae35-d776c591ed12",
+					"date": 1677648063223,
+					"name": "加电路书详情",
+					"path": "0ec6907e-fb17-40e4-85c9-c42f9110994c/ete/$ETE0df67767-0927-4c2e-ae35-d776c591ed12.js",
+					"checked": true
+				},
+				{
+					"id": "$ETE5534b58e-2560-4b66-a288-6832cea84ed1",
+					"date": 1677574091977,
+					"name": "协议",
+					"path": "0ec6907e-fb17-40e4-85c9-c42f9110994c/ete/$ETE5534b58e-2560-4b66-a288-6832cea84ed1.js",
+					"checked": true
+				}
+			],
+			"checked": true,
+			"name": "主流程自动化验证"
+		}
+	],
+	"configPath": "0ec6907e-fb17-40e4-85c9-c42f9110994c/ete/config.json"
+}

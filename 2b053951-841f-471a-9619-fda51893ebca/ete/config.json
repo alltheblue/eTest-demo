@@ -1,0 +1,56 @@
+{
+	"config": { "debugger": false, "headless": false, "trace": false },
+	"modulePath": "2b053951-841f-471a-9619-fda51893ebca/ete",
+	"dataSource": [
+		{
+			"id": "05515071-317f-4051-8f9b-72004a3cd6ad",
+			"eteList": [
+				{
+					"id": "$ETEdecc53a0-4304-4585-b6d7-5b95c8c8627b",
+					"date": 1682675144124,
+					"name": "小米商城 - Xiaomi 13、Redmi K60、MIX FOLD 2，小米电视官方网站.json",
+					"path": "2b053951-841f-471a-9619-fda51893ebca/ete/$ETEdecc53a0-4304-4585-b6d7-5b95c8c8627b.js",
+					"checked": true
+				},
+				{
+					"id": "$ETEad76b502-f726-4be8-98f7-b093c8c5964c",
+					"date": 1682675159864,
+					"name": "小米商城 - Xiaomi 13、Redmi K60、MIX FOLD 2，小米电视官方网站 (1).json",
+					"path": "2b053951-841f-471a-9619-fda51893ebca/ete/$ETEad76b502-f726-4be8-98f7-b093c8c5964c.js",
+					"checked": true
+				},
+				{
+					"id": "$ETE59ac50fa-a29b-4ec0-9a99-191b142159dc",
+					"date": 1682675159871,
+					"name": "小米商城 - Xiaomi 13、Redmi K60、MIX FOLD 2，小米电视官方网站 (2).json",
+					"path": "2b053951-841f-471a-9619-fda51893ebca/ete/$ETE59ac50fa-a29b-4ec0-9a99-191b142159dc.js",
+					"checked": true
+				}
+			],
+			"checked": true,
+			"name": "首页"
+		},
+		{
+			"id": "9e7e5f83-6cc6-43ae-ae82-eae2d8ad92dd",
+			"eteList": [
+				{
+					"id": "$ETE5e37c049-bbbf-4bba-8f9d-c124b7cdda96",
+					"date": 1683284832634,
+					"name": "app.json",
+					"path": "2b053951-841f-471a-9619-fda51893ebca/ete/$ETE5e37c049-bbbf-4bba-8f9d-c124b7cdda96.js",
+					"checked": false
+				},
+				{
+					"id": "$ETE470734e8-4955-4fe8-b266-b0a1a5cf11f4",
+					"date": 1683285252646,
+					"name": "Bookwaves：Self growth-15 minutes per day.json",
+					"path": "2b053951-841f-471a-9619-fda51893ebca/ete/$ETE470734e8-4955-4fe8-b266-b0a1a5cf11f4.js",
+					"checked": false
+				}
+			],
+			"checked": false,
+			"name": "demodemo"
+		}
+	],
+	"configPath": "2b053951-841f-471a-9619-fda51893ebca/ete/config.json"
+}

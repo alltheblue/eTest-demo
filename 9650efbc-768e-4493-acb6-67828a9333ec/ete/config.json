@@ -1,0 +1,21 @@
+{
+  "config": { "local": true, "brower": "chrome", "key": "234", "value": "" },
+  "modulePath": "9650efbc-768e-4493-acb6-67828a9333ec/ete",
+  "dataSource": [
+    {
+      "id": "2bed9c48-ca32-4cba-9f44-25ef4b73de39",
+      "eteList": [
+        {
+          "id": "$ETE08278b58-2391-4481-ab78-215607ce5839",
+          "date": 1698058231362,
+          "name": "eTest 的个人主页 - 动态 - 掘金.json",
+          "path": "9650efbc-768e-4493-acb6-67828a9333ec/ete/$ETE08278b58-2391-4481-ab78-215607ce5839.js",
+          "checked": true
+        }
+      ],
+      "checked": true,
+      "name": "验证"
+    }
+  ],
+  "configPath": "9650efbc-768e-4493-acb6-67828a9333ec/ete/config.json"
+}
